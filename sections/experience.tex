@@ -1,0 +1,30 @@
+\cvsection[0.7]{实习经历}
+
+\newcommand{\internbanner}[6]{%
+  \begin{tcolorbox}[
+    enhanced,colback=#1,frame hidden,boxrule=0pt,
+    borderline west={2.5pt}{0pt}{#2},
+    overlay={\node[anchor=center,inner sep=0pt]
+      at ([xshift=18pt]frame.west) {#3};},
+    arc=1mm,outer arc=1mm,boxsep=0pt,
+    left=38pt,right=8pt,top=4pt,bottom=4pt,
+    width=\linewidth,before skip=0.5em,after skip=0.25em]
+    \noindent{\bfseries\color{OpenCurveHeading}#4}\hfill{\color{OpenCurveMuted}#6}\par
+    {\small #5}%
+  \end{tcolorbox}%
+}
+
+\internbanner{AgentPurpleTint}{AgentPurple}
+  {\textcolor{AgentPurple}{\fontsize{19}{19}\selectfont\faRobot}}
+  {XXXX · 智能系统研发中心}
+  {大模型算法实习生 · 智能体与世界模型方向}
+  {20XX.XX--20XX.XX}
+\cvitem{\cvlabel{核心工作}参与多模态智能体算法研发，负责长程任务分解、历史记忆检索与动作生成；构建基于 Transformer 的统一决策框架，引入\bluebf{分层规划、状态记忆与约束解码}。}
+\cvitem{\cvlabel{工作成效}在示例评测集上将任务成功率提升 \bluebf{12.6\%}，端到端推理延迟降低 \bluebf{28\%}；完成算法文档、消融实验和部署接口交付。}
+
+\internbanner{AgentTealTint}{AgentTeal}
+  {\textcolor{AgentTeal}{\fontsize{18}{18}\selectfont\faNetworkWired}}
+  {XXXX · 大模型平台部}
+  {研究实习生 · 训练与推理优化方向}
+  {20XX.XX--20XX.XX}
+\cvitem{\cvlabel{工作内容}参与大模型训练、评测和推理优化；通过动态批处理、缓存复用和算子融合，使吞吐率提升 \bluebf{1.7 倍}、显存占用降低 \bluebf{23\%}。相关数字为模板示例。}

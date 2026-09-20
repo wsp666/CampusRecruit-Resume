@@ -1,0 +1,36 @@
+\cvsection[0.7]{项目经历}
+
+\newcommand{\projectbanner}[7]{%
+  \begin{tcolorbox}[
+    enhanced,colback=#1,frame hidden,boxrule=0pt,
+    borderline west={2.5pt}{0pt}{#2},
+    overlay={\node[anchor=center,inner sep=0pt]
+      at ([xshift=19pt]frame.west) {#3};},
+    arc=1mm,outer arc=1mm,boxsep=0pt,
+    left=40pt,right=8pt,top=3pt,bottom=3pt,
+    width=\linewidth,before skip=0.45em,after skip=0.18em]
+    \noindent{\bfseries\textcolor{#2}{#4}}\quad{\bfseries #5}
+    \hfill{\color{OpenCurveMuted}#6}\par
+    {\small\color{OpenCurveMuted}#7}%
+  \end{tcolorbox}%
+}
+
+\projectbanner{AgentOrangeTint}{AgentOrange}
+  {\textcolor{AgentOrange}{\fontsize{19}{19}\selectfont\faProjectDiagram}}
+  {P1}{多智能体协同规划与任务执行系统}{20XX.XX--至今}
+  {LLM Agent · 任务编排 · 工具调用 · 长程记忆}
+\cvitem{\cvlabel{核心工作}面向复杂工作流构建多角色智能体系统，设计“规划--执行--校验--反思”闭环，以结构化状态机管理任务依赖，并结合检索增强记忆与置信度路由完成工具选择和异常恢复。}
+\cvitem{\cvlabel{项目成效}在模板示例数据集上实现 \bluebf{91.8\%} 的任务完成率，平均工具调用次数降低 \bluebf{24\%}，支持可视化追踪和模块化扩展。}
+
+\projectbanner{AgentPurpleTint}{AgentPurple}
+  {\textcolor{AgentPurple}{\fontsize{19}{19}\selectfont\faCube}}
+  {P2}{面向具身任务的潜空间世界模型}{20XX.XX--20XX.XX}
+  {World Model · Flow Matching · 视觉语言动作模型}
+\cvitem{\cvlabel{核心工作}针对视觉生成开销大和长程决策误差累积问题，构建动作驱动的潜空间动力学模型，以可学习查询提取任务相关状态，并使用 Flow Matching 生成连续动作序列。}
+\cvitem{\cvlabel{项目成效}将有效规划时域提升至 \bluebf{50 步}，闭环任务成功率提升 \bluebf{15.3\%}，单步推理延迟控制在 \bluebf{62\,ms} 以内。}
+
+\projectbanner{AgentTealTint}{AgentTeal}
+  {\textcolor{AgentTeal}{\fontsize{18}{18}\selectfont\faMicrochip}}
+  {P3}{端侧多模态智能体推理与部署}{20XX.XX--20XX.XX}
+  {模型压缩 · 量化部署 · 异构加速}
+\cvitem{\cvlabel{核心工作}完成模型裁剪、低比特量化、KV Cache 优化及异构算子调度；模型体积压缩 \bluebf{68\%}，端侧推理速度提升 \bluebf{2.1 倍}，核心任务精度下降控制在 \bluebf{1\%} 以内。}
