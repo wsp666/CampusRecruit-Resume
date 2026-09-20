@@ -13,7 +13,7 @@
 \providecommand{\refname}{References}
 \RequirePackage[fontset=none,scheme=plain]{ctex}
 \RequirePackage{fontspec}
-\RequirePackage[a4paper,left=1.35cm,right=1.35cm,top=1.25cm,bottom=1.25cm]{geometry}
+\RequirePackage[a4paper,left=1.2cm,right=1.2cm,top=0.85cm,bottom=0.8cm]{geometry}
 \RequirePackage[dvipsnames,svgnames]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage[fixed]{fontawesome5}
@@ -40,7 +40,7 @@
 \IfFontExistsTF{Consolas}{\setmonofont{Consolas}}{\setmonofont{Latin Modern Mono}}
 
 % Global line spacing.
-\linespread{1.18}\selectfont
+\linespread{1.05}\selectfont
 
 % Blue follows the emphasis color used in the original CV.
 \definecolor{OpenCurvePrimary}{HTML}{04549C}
@@ -50,15 +50,13 @@
 \definecolor{OpenCurveTint}{HTML}{ECF4FB}
 \definecolor{PaperLinkGreen}{HTML}{E5F2E7}
 \definecolor{PaperLinkText}{HTML}{347848}
-% Enterprise brand palettes for cooperative project banners.
-\definecolor{XiaomiOrange}{HTML}{FF6900}
-\definecolor{XiaomiTint}{HTML}{FFF4EA}
-\definecolor{ZTEBlue}{HTML}{00A9E0}
-\definecolor{ZTETint}{HTML}{EDF9FD}
-\definecolor{VivoBlue}{HTML}{415FFF}
-\definecolor{VivoTint}{HTML}{EEF1FF}
-\definecolor{CSGBlue}{HTML}{0068B7}
-\definecolor{CSGTint}{HTML}{EDF6FC}
+% Neutral palettes used by the public example entries.
+\definecolor{AgentPurple}{HTML}{6656D9}
+\definecolor{AgentPurpleTint}{HTML}{F2F0FC}
+\definecolor{AgentTeal}{HTML}{16837A}
+\definecolor{AgentTealTint}{HTML}{EDF8F6}
+\definecolor{AgentOrange}{HTML}{D97818}
+\definecolor{AgentOrangeTint}{HTML}{FFF5EA}
 
 \raggedright
 \urlstyle{same}
@@ -82,15 +80,15 @@
     \hbox to \linewidth{%
       \hskip1pt%
       \raisebox{0pt}[1.5ex][.5ex]{%
-        \fontsize{15}{16.8}\selectfont\sffamily\bfseries
+        \fontsize{14.2}{15.5}\selectfont\sffamily\bfseries
         \textcolor{OpenCurvePrimary}{#2}}%
       \hfil
     }%
-    \vskip2.5pt
+    \vskip2pt
     {\color{OpenCurveAccent}%
       \hrule height 1.3pt width \linewidth}%
   }%
-  \par\vspace{3pt}%
+  \par\vspace{2pt}%
 }
 
 \newcommand{\cvheading}[3][0.4em]{%

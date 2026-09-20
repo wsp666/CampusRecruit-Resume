@@ -1,28 +1,33 @@
-% 王胜鹏 | OpenCurVe 版学术简历
-% 编译：tectonic resume.tex 或 XeLaTeX / LuaLaTeX
-\documentclass[a4paper,skipsamekey,10pt,english]{curve}
+% OpenCurve Resume Template - public example without personal information
+% Compile with XeLaTeX, LuaLaTeX, or Tectonic.
+\documentclass[a4paper,skipsamekey,9.4pt,english]{curve}
 \usepackage{open-curve}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins}
 
 \leftheader{%
-  {\LARGE\sffamily\bfseries 王胜鹏}%
-  \hspace{0.65em}{\LARGE\bluebf{\href{https://shengpeng.wang/}{shengpeng.wang}}}\par\smallskip
-  \headeritem{\faPhone}{\href{tel:+8618164220849}{181 6422 0849}}%
+  {\LARGE\sffamily\bfseries XXXX}%
+  \hspace{0.65em}{\LARGE\bluebf{\href{https://example.com}{example.com}}}\par\smallskip
+  \headeritem{\faPhone}{(+86) XXX XXXX XXXX}%
   \headerdivider
-  \headeritem{\faEnvelope[regular]}{\href{mailto:wsp666@hust.edu.cn}{wsp666@hust.edu.cn}}%
+  \headeritem{\faEnvelope[regular]}{\href{mailto:name@example.com}{name@example.com}}%
   \headerlinebreak
-  % \headeritem{\faGithub}{\href{https://github.com/wsp666}{github.com/wsp666}}%
-  \headeritem{\faGlobe}{\href{https://shengpeng.wang/}{https://shengpeng.wang}}%
+  \headeritem{\faGithub}{\href{https://github.com/username}{github.com/username}}%
   \headerdivider
-  {\color{OpenCurveMuted}华中科技大学博士研究生 \quad 中共党员 \quad 湖北武汉 \quad 26岁}\par
+  {\color{OpenCurveMuted}博士研究生 \quad 政治面貌：XXXX \quad 所在地：XXXX}\par
   \vspace{0.18em}
-  {\small{\bfseries\color{OpenCurveHeading}研究方向}：世界-语言-动作模型、多模态融合、具身智能、空间智能、毫米波雷达感知}%
+  {\small{\bfseries\color{OpenCurveHeading}研究方向}：智能体、世界模型、多模态学习、具身智能、边缘推理}%
 }
 
+% Replace this neutral placeholder with your own portrait if desired:
+% \includegraphics[width=2.45cm,height=2.8cm,keepaspectratio]{assets/portrait.jpg}
 \rightheader{%
   \centering
-  \includegraphics[width=2.45cm,height=2.8cm,keepaspectratio]{assets/portrait.jpg}%
+  \begin{tikzpicture}
+    \node[circle,minimum size=2.15cm,fill=OpenCurveTint,
+      draw=OpenCurveAccent,line width=1pt,text=OpenCurvePrimary]
+      {\fontsize{34}{34}\selectfont\faUser};
+  \end{tikzpicture}%
 }
 
 \begin{document}
@@ -30,10 +35,8 @@
 
 \input{sections/education}
 \input{sections/papers}
-% \clearpage
 \input{sections/experience}
 \input{sections/projects}
-% 央国企投递版聚焦教育、成果、实习与企业联合项目。
-% \input{sections/service}
+\input{sections/honors}
 
 \end{document}
