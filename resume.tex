@@ -1,0 +1,39 @@
+% 王胜鹏 | OpenCurVe 版学术简历
+% 编译：tectonic resume.tex 或 XeLaTeX / LuaLaTeX
+\documentclass[a4paper,skipsamekey,10pt,english]{curve}
+\usepackage{open-curve}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+
+\leftheader{%
+  {\LARGE\sffamily\bfseries 王胜鹏}%
+  \hspace{0.65em}{\LARGE\bluebf{\href{https://shengpeng.wang/}{shengpeng.wang}}}\par\smallskip
+  \headeritem{\faPhone}{\href{tel:+8618164220849}{181 6422 0849}}%
+  \headerdivider
+  \headeritem{\faEnvelope[regular]}{\href{mailto:wsp666@hust.edu.cn}{wsp666@hust.edu.cn}}%
+  \headerlinebreak
+  % \headeritem{\faGithub}{\href{https://github.com/wsp666}{github.com/wsp666}}%
+  \headeritem{\faGlobe}{\href{https://shengpeng.wang/}{https://shengpeng.wang}}%
+  \headerdivider
+  {\color{OpenCurveMuted}华中科技大学博士研究生 \quad 中共党员 \quad 湖北武汉 \quad 26岁}\par
+  \vspace{0.18em}
+  {\small{\bfseries\color{OpenCurveHeading}研究方向}：世界-语言-动作模型、多模态融合、具身智能、空间智能、毫米波雷达感知}%
+}
+
+\rightheader{%
+  \centering
+  \includegraphics[width=2.45cm,height=2.8cm,keepaspectratio]{assets/portrait.jpg}%
+}
+
+\begin{document}
+\makeheaders[c]
+
+\input{sections/education}
+\input{sections/papers}
+% \clearpage
+\input{sections/experience}
+\input{sections/projects}
+% 央国企投递版聚焦教育、成果、实习与企业联合项目。
+% \input{sections/service}
+
+\end{document}

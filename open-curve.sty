@@ -1,0 +1,159 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{open-curve}[Minimal style for OpenCurVe Resume]
+
+% OpenCurVe Resume requires a Unicode-aware engine.
+\RequirePackage{iftex}
+\ifXeTeX\else
+  \ifLuaTeX\else
+    \PackageError{open-curve}{Please compile with XeLaTeX or LuaLaTeX}{}
+  \fi
+\fi
+
+% CurVe does not define a bibliography title, while ctex checks for one.
+\providecommand{\refname}{References}
+\RequirePackage[fontset=none,scheme=plain]{ctex}
+\RequirePackage{fontspec}
+\RequirePackage[a4paper,left=1.35cm,right=1.35cm,top=1.25cm,bottom=1.25cm]{geometry}
+\RequirePackage[dvipsnames,svgnames]{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage[fixed]{fontawesome5}
+\RequirePackage[hidelinks,breaklinks=true]{hyperref}
+
+% Portable font defaults: use the original fonts when available, otherwise
+% fall back to fonts bundled with a typical TeX Live installation.
+\IfFontExistsTF{Times New Roman}{
+  \setmainfont{Times New Roman}
+  \setsansfont{Times New Roman}
+}{
+  \setmainfont{TeX Gyre Termes}
+  \setsansfont{TeX Gyre Termes}
+}
+\IfFontExistsTF{Microsoft YaHei}{
+  \setCJKmainfont{Microsoft YaHei}
+  \setCJKsansfont{Microsoft YaHei}
+  \setCJKmonofont{Microsoft YaHei}
+}{
+  \setCJKmainfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+  \setCJKsansfont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+  \setCJKmonofont{FandolHei-Regular}[BoldFont=FandolHei-Bold]
+}
+\IfFontExistsTF{Consolas}{\setmonofont{Consolas}}{\setmonofont{Latin Modern Mono}}
+
+% Global line spacing.
+\linespread{1.18}\selectfont
+
+% Blue follows the emphasis color used in the original CV.
+\definecolor{OpenCurvePrimary}{HTML}{04549C}
+\definecolor{OpenCurveAccent}{HTML}{4282BB}
+\definecolor{OpenCurveHeading}{HTML}{173A68}
+\definecolor{OpenCurveMuted}{HTML}{546274}
+\definecolor{OpenCurveTint}{HTML}{ECF4FB}
+\definecolor{PaperLinkGreen}{HTML}{E5F2E7}
+\definecolor{PaperLinkText}{HTML}{347848}
+% Enterprise brand palettes for cooperative project banners.
+\definecolor{XiaomiOrange}{HTML}{FF6900}
+\definecolor{XiaomiTint}{HTML}{FFF4EA}
+\definecolor{ZTEBlue}{HTML}{00A9E0}
+\definecolor{ZTETint}{HTML}{EDF9FD}
+\definecolor{VivoBlue}{HTML}{415FFF}
+\definecolor{VivoTint}{HTML}{EEF1FF}
+\definecolor{CSGBlue}{HTML}{0068B7}
+\definecolor{CSGTint}{HTML}{EDF6FC}
+
+\raggedright
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\headerspace}{0pt}
+\headerscale{0.74}
+
+% Header helpers.
+\newcommand{\headeritem}[2]{%
+  \makebox[1.35em][c]{\color{black}#1}\,#2}
+\newcommand{\headerdivider}{%
+  \hspace{0.8em}\textcolor{gray}{\textbar}\hspace{0.8em}}
+\newcommand{\headerlinebreak}{\par\vspace{0.2\baselineskip}}
+
+% Shared section and entry primitives.
+\newcommand{\cvsection}[2][1]{%
+  \par\vspace{#1\baselineskip}%
+  \noindent
+  \vbox{%
+    \hbox to \linewidth{%
+      \hskip1pt%
+      \raisebox{0pt}[1.5ex][.5ex]{%
+        \fontsize{15}{16.8}\selectfont\sffamily\bfseries
+        \textcolor{OpenCurvePrimary}{#2}}%
+      \hfil
+    }%
+    \vskip2.5pt
+    {\color{OpenCurveAccent}%
+      \hrule height 1.3pt width \linewidth}%
+  }%
+  \par\vspace{3pt}%
+}
+
+\newcommand{\cvheading}[3][0.4em]{%
+  \par\nointerlineskip
+  \vspace{#1}%
+  \noindent
+  \hbox to \linewidth{%
+    {\fontsize{10.5}{12.6}\selectfont\sffamily\bfseries
+      \textcolor{OpenCurveHeading}{#2}}%
+    \hfil
+    {\color{OpenCurveMuted}#3}%
+  }\par
+}
+
+\newcommand{\cvitem}[2][black]{%
+  \par
+  \settowidth{\hangindent}{\textbullet\ }%
+  \hangafter=1\noindent
+  \textcolor{#1}{\textbullet}\ #2\par
+}
+
+\newcommand{\cvtagline}[1]{%
+  {\normalsize\bfseries\textcolor{OpenCurveHeading}{#1}}\par
+  \vspace{0.1em}%
+}
+
+% CV-specific helpers: preserve readable dates and highlighted achievements.
+\newcommand{\cvem}[1]{\textcolor{OpenCurvePrimary}{\bfseries #1}}
+% Original CV emphasis and school tags.
+\newcommand{\bluebf}[1]{\textcolor{blue}{\textbf{#1}}}
+\newcommand{\greenbf}[1]{\textcolor{magenta}{{#1}}}
+\newcommand{\mybox}[1]{%
+  \tikz[baseline=(badge.base)]{\node[rounded corners=2pt,fill=OpenCurveTint,
+    text=OpenCurvePrimary,inner xsep=3pt,inner ysep=1.3pt]
+    (badge){#1};}%
+}
+% Only the Project link retains a box in the publication list.
+\newcommand{\linkbox}[2]{%
+  \tikz[baseline=(badge.base)]{\node[rounded corners=2pt,fill=PaperLinkGreen,
+    text=PaperLinkText,font=\footnotesize\bfseries,inner xsep=3pt,inner ysep=1.7pt]
+    (badge){\href{#1}{\faGlobe\ #2}};}%
+}
+\newcommand{\cvlabel}[1]{\textbf{#1：}}
+\newcommand{\cvmeta}[1]{{\color{OpenCurveMuted}#1}}
+% \newcommand{\cventry}[2]{%
+%   % Section headings already provide trailing space; no leading gap here.
+%   \noindent
+%   \begin{minipage}[t]{0.78\linewidth}%
+%     \raggedright{#1}%
+%   \end{minipage}\hfill
+%   \begin{minipage}[t]{0.20\linewidth}%
+%     \raggedleft\color{OpenCurveMuted}#2%
+%   \end{minipage}%\par%\vspace{0.1em}%
+% }
+\newcommand{\cventry}[2]{%
+  \noindent
+  #1%
+  \hfill
+  {\color{OpenCurveMuted}#2}%
+  \par
+}
+\newcommand{\cvpaper}[2]{%
+  \par\noindent%\hangindent=2.8em\hangafter=1%
+  \makebox[2.8em][l]{\bfseries\color{OpenCurvePrimary}#1}#2\par
+  % \vspace{0.16em}%
+}
